@@ -1,0 +1,65 @@
+﻿@model Jonesie.Web.Module.Blog.Models.BlogPostViewModel
+
+
+@using (Html.BeginForm("SaveBlogPost", "Blog", FormMethod.Post))
+{
+  <fieldset>
+
+    @Html.HiddenFor(m => m.IsNew)
+    @Html.HiddenFor(m => m.Delete)
+    @Html.HiddenFor(m => m.Post.Id)
+
+    @if (Model.Delete)
+    {
+      <h4>Are you sure you wish to post "@Model.Post.Title" ?</h4>
+    }
+    else
+    {
+      <table>
+        <tr>
+          <td colspan="2">
+            @Html.LabelFor(m => m.Post.Title)
+            @Html.TextBoxFor(m => m.Post.Title, new { style="width:96%" })
+            @Html.ValidationMessageFor(m => m.Post.Title)
+          </td>
+        </tr>
+        <tr>
+          <td>
+            @Html.LabelFor(m => m.Post.Author)
+            @Html.TextBoxFor(m => m.Post.Author, new { style="width:90%" })
+            @Html.ValidationMessageFor(m => m.Post.Author)
+          </td>
+          <td>
+            @Html.LabelFor(m => m.Post.Email)
+            @Html.TextBoxFor(m => m.Post.Email, new { style="width:90%" })
+            @Html.ValidationMessageFor(m => m.Post.Email)
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            Tags
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            @Html.LabelFor(m => m.Post.Body)
+            @Html.TextAreaFor(m => m.Post.Body, new { style="width:90%", rows=40 })
+            @Html.ValidationMessageFor(m => m.Post.Body)
+          </td>
+
+        </tr>
+      </table>
+    }
+
+  </fieldset>
+}
+</div>
+
+<script type="text/javascript">
+
+  $(function () {
+    $("#Post_Body").redactor({ miHeight: 300 });
+    $("#Post_Title").focus();
+  });
+
+</script>

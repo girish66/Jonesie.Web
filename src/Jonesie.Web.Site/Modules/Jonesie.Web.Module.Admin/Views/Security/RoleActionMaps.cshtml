@@ -1,0 +1,36 @@
+﻿@model Jonesie.Web.Module.Admin.Models.RoleActionMapsViewModel
+
+<div id="@(Model.Entity)_GRID"></div>
+<div id='@(Model.Entity)_DIALOG'></div>
+
+@Html.Partial("GridHeadingPartial", Model)
+@Html.Partial("GridPagerPartial", Model)
+@Html.Partial("GridPartial", Model)
+
+<script type="text/html" id="@(Model.Entity)rows_template">
+  {{#Items}}
+    <tr data-id="{{RoleActionMapId}}">
+      <td>{{RoleName}}</td>
+      <td>{{Path}}</td>
+    </tr>
+  {{/Items}}
+</script>
+
+<script type="text/javascript">
+
+  $(function () {
+    showGrid([
+            {
+              Label: 'Role',
+              ColumnName: 'RoleName',
+              Sortable: true
+            },
+            {
+              Label: 'Path',
+              ColumnName: 'Path',
+              Sortable: true
+            }
+    ]);
+  });
+
+</script>

@@ -1,0 +1,12 @@
+﻿@model Jonesie.Web.Entities.Core.BaseViewModel
+
+<script type="text/html" id="@(Model.Entity)page_template">
+  {{#if Pages}}
+    <div class="pagination pagination-mini">
+      <ul>
+        <li><a id="page_prev" href="#">Newer Posts</a></li>              
+        <li><a id="page_next" href="#">Older Posts</a></li>
+      </ul>
+    </div>
+  {{/if}}
+</script>

@@ -1,0 +1,32 @@
+﻿@model System.Web.Mvc.HandleErrorInfo
+
+@{
+    ViewBag.Title = "Error";
+    Layout = "~/Views/Shared/_BlankLayout.cshtml";
+}
+
+@section bodytitle {
+    @*hide the default page title*@
+}
+
+<hgroup class="title">
+    <h3 class="error">An error occurred while processing your request.</h3>
+
+    @{
+        if (Model != null && Model.Exception != null)
+        {
+        <div class="alert alert-error"><label class="label label-important">Exception</label>&nbsp;@Model.Exception.Message</div>     
+        <p class="text-info">Stack Trace :</p>
+        <pre>@Model.Exception.StackTrace</pre>
+        <div class="well">
+            This error has been logged for future reference and will be investigated.
+        </div>
+        }
+        else
+        { 
+        <p class="text-error">Exception was null</p>
+        }
+        
+    }
+
+</hgroup>

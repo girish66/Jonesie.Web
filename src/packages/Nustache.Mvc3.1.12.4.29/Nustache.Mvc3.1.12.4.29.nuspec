@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>Nustache.Mvc3</id>
+    <version>1.12.4.29</version>
+    <authors>Jason Diamond</authors>
+    <owners>Jason Diamond</owners>
+    <licenseUrl>https://raw.github.com/jdiamond/Nustache/master/LICENSE.txt</licenseUrl>
+    <projectUrl>https://github.com/jdiamond/Nustache</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Logic-less templates for ASP.NET MVC 3</description>
+    <tags>Template Mustache MVC</tags>
+    <dependencies>
+      <dependency id="Nustache" version="1.12.2.12" />
+    </dependencies>
+    <references>
+      <reference file="Nustache.Mvc3.dll" />
+    </references>
+  </metadata>
+</package>

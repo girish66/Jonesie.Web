@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="6e925964-1b98-43cc-a9b8-8a845588f32a" ChangeDateTime="12/27/2012 20:27:05">
+    <Property Name="ElementName" Value="[dbo].[Version].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Version]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="SchemaSetName" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="08f9070a-82eb-4f9e-80d0-9b42bfd8689f" ChangeDateTime="12/27/2012 20:27:26">
+    <Property Name="ElementName" Value="[dbo].[Version].[vERS]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Version]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Version" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="792417cc-e591-4ca6-9422-117263a2a080" ChangeDateTime="12/27/2012 21:20:06">
+    <Property Name="ElementName" Value="[dbo].[Version]" />
+    <Property Name="ElementType" Value="SqlTable" />
+    <Property Name="ParentElementName" Value="[dbo]" />
+    <Property Name="ParentElementType" Value="SqlSchema" />
+    <Property Name="NewName" Value="SchemaVersion" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="1b3289f4-9cc2-425e-b626-47b9c012fcaa" ChangeDateTime="01/15/2013 07:34:16">
+    <Property Name="ElementName" Value="[dbo].[Page_Page].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Page_Page]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="PageId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="24fcf724-d397-4802-a806-31310817c397" ChangeDateTime="01/15/2013 07:49:05">
+    <Property Name="ElementName" Value="[dbo].[FK_Page_Page_ToTable]" />
+    <Property Name="ElementType" Value="SqlForeignKeyConstraint" />
+    <Property Name="ParentElementName" Value="[dbo].[Page_Page]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[FK_Page_Page_Template]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="45340f53-8c62-4485-9286-1506a270f7d8" ChangeDateTime="02/16/2013 20:46:35">
+    <Property Name="ElementName" Value="[dbo].[RoleActionMap].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[RoleActionMap]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="RoleActionMapId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="833687a7-683e-4d3d-8377-cfd7ab80238f" ChangeDateTime="02/16/2013 20:46:39">
+    <Property Name="ElementName" Value="[dbo].[RoleActionMap].[Role]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[RoleActionMap]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="RoleID" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="c8a28a40-ecea-40f2-aefa-f149bd804a6b" ChangeDateTime="02/16/2013 20:46:41">
+    <Property Name="ElementName" Value="[dbo].[RoleActionMap].[RoleID]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[RoleActionMap]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="RoleId" />
+  </Operation>
+</Operations>

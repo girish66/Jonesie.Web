@@ -1,0 +1,129 @@
+﻿@model Jonesie.Web.Entities.Core.BaseViewModel
+@using Jonesie.Web.Entities.Core;
+
+<script type="text/html" id="@(Model.Entity)grid_template">
+
+  @if (Model.ToolbarButtons != BaseViewModelToolbarEnum.None)
+  {
+    <div class="btn-group" id="@(Model.Entity)toolbar">
+      @if ((Model.ToolbarButtons & BaseViewModelToolbarEnum.Add) == BaseViewModelToolbarEnum.Add)
+      {
+        <button class="btn" id="@(Model.Entity)toolbar_new" onclick="new@(Model.Entity)()">
+          New</button>
+      }
+      @if ((Model.ToolbarButtons & BaseViewModelToolbarEnum.Edit) == BaseViewModelToolbarEnum.Edit)
+      {
+        <button class="btn" id="@(Model.Entity)toolbar_edit" onclick="edit@(Model.Entity)()">
+          Edit</button>
+      }
+      @if ((Model.ToolbarButtons & BaseViewModelToolbarEnum.Delete) == BaseViewModelToolbarEnum.Delete)
+      {
+        <button class="btn" id="@(Model.Entity)toolbar_delete" onclick="delete@(Model.Entity)()">
+          Delete</button>
+      }
+      @if ((Model.ToolbarButtons & BaseViewModelToolbarEnum.Refresh) == BaseViewModelToolbarEnum.Refresh)
+      {
+        <button class="btn" id="@(Model.Entity)toolbar_refresh" onclick="refresh@(Model.Entity)()">
+          Refresh</button>
+      }
+    </div>
+  }
+  <table class="sortable-grid table table-bordered table-hover table-condensed">
+    <thead>
+      {{#Columns}}       
+        <th class="{{SortableCss}}" data-column-name="{{ColumnName}}">{{Label}}</th>
+      {{/Columns}}
+    </thead>
+    <tbody>
+      {{{Rows}}}           
+    </tbody>
+  </table>
+  {{{Paging}}}
+</script>
+
+
+<script type="text/javascript">
+
+  var selected@(Model.Entity)Row = -1;
+  var $@(Model.Entity)Grid;
+
+  function rowSelected(id) {
+  @if (Model.ToolbarButtons != BaseViewModelToolbarEnum.None)
+  {
+    <text>
+    $("#@(Model.Entity)toolbar_edit").removeClass('disabled');
+    $("#@(Model.Entity)toolbar_delete").removeClass('disabled');
+    </text>
+  }
+    selected@(Model.Entity)Row = id;
+  }
+
+  function gridRender() {
+  @if (Model.ToolbarButtons != BaseViewModelToolbarEnum.None)
+  {
+    <text>
+    $("#@(Model.Entity)toolbar_edit").addClass('disabled');
+    $("#@(Model.Entity)toolbar_delete").addClass('disabled');
+    </text>
+  }
+    selected@(Model.Entity)Row = -1;
+  }
+
+  @if ((Model.ToolbarButtons & BaseViewModelToolbarEnum.Add) == BaseViewModelToolbarEnum.Add)
+  {
+    <text>
+  function new@(Model.Entity)() {
+      Jonesie.createForm('@Model.Entity', '@Model.EntityLabel','New', '@Model.Controller', $@(Model.Entity)Grid);
+  }
+  </text>
+  }
+
+  @if ((Model.ToolbarButtons & BaseViewModelToolbarEnum.Edit) == BaseViewModelToolbarEnum.Edit)
+  {
+    <text>
+  function edit@(Model.Entity)() {
+    if (selected@(Model.Entity)Row > -1) {
+        Jonesie.createForm('@Model.Entity', '@Model.EntityLabel', 'Edit', '@Model.Controller', $@(Model.Entity)Grid, selected@(Model.Entity)Row);
+    }
+  }
+  </text>
+  }
+
+  @if ((Model.ToolbarButtons & BaseViewModelToolbarEnum.Delete) == BaseViewModelToolbarEnum.Delete)
+  {
+    <text>
+  function delete@(Model.Entity)() {
+    if (selected@(Model.Entity)Row > -1) {
+        Jonesie.createForm('@Model.Entity', '@Model.EntityLabel', 'Delete', '@Model.Controller', $@(Model.Entity)Grid, selected@(Model.Entity)Row);
+    }
+  }
+  </text>
+  }
+
+  @if ((Model.ToolbarButtons & BaseViewModelToolbarEnum.Refresh) == BaseViewModelToolbarEnum.Refresh)
+  {
+    <text>
+  function refresh@(Model.Entity)() {
+    $@(Model.Entity)Grid.load();
+  }
+    </text>
+  }      
+
+  function showGrid(columns) {
+    var config = {
+      url: Jonesie.globals.baseUrl + '@Model.Controller/Get@(Model.Entity)s',
+      pageSize: 10,
+      el: '#@(Model.Entity)_GRID',
+      row_template: "#@(Model.Entity)rows_template",
+      grid_template: "#@(Model.Entity)grid_template",
+      page_template: "#@(Model.Entity)page_template",
+      rowSelected: rowSelected,
+      gridRender: gridRender,
+      columns : columns
+    }; 
+
+    $@(Model.Entity)Grid = Jonesie.basicgrid.QuickGrid(config);
+    $@(Model.Entity)Grid.load();
+  }
+
+</script>

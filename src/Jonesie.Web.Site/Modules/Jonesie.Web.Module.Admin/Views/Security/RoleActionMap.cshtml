@@ -1,0 +1,45 @@
+﻿@model Jonesie.Web.Module.Admin.Models.RoleActionMapViewModel
+
+@using (Html.BeginForm("SaveRoleActionMap", "Security", FormMethod.Post, new { id = "RoleForm" }))
+{
+  <fieldset>
+
+    @Html.HiddenFor(m => m.IsNew)
+    @Html.HiddenFor(m => m.Delete)
+    @Html.HiddenFor(m => m.RoleActionMap.RoleActionMapId)
+
+    @if (Model.Delete)
+    {
+      <h4>Are you sure you wish to delete role @Model.RoleActionMap.RoleName ?</h4>
+    }
+    else
+    {
+
+      <div class="control-group">
+        @Html.LabelFor(m => m.RoleActionMap.RoleId)
+        <div class="controls">
+          @Html.DropDownListFor(m => m.RoleActionMap.RoleId, Model.RolesList) 
+        </div>
+      </div>
+
+      <div class="control-group">
+        @Html.LabelFor(m => m.RoleActionMap.Path)
+        <div class="controls">
+          @Html.TextBoxFor(m => m.RoleActionMap.Path)
+          @Html.ValidationMessageFor(m => m.RoleActionMap.Path)
+        </div>
+      </div>
+
+    }
+
+  </fieldset>
+}
+
+<script type="text/javascript">
+
+  $(function () {
+    $("#RoleForm input:visible:first").focus();
+
+  });
+
+</script>

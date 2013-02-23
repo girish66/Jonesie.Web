@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CB620B67-4AB2-459C-9047-5802FD04D3DA}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Jonesie.Web.Data.Blog</RootNamespace>
+    <AssemblyName>Jonesie.Web.Data.Blog</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\Jonesie.Web.Site\bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BlogRepository.cs" />
+    <Compile Include="IBlogRepository.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Jonesie.Web.Common\Jonesie.Web.Common.csproj">
+      <Project>{2c1f5998-3ea9-4644-8451-9383e11fe67f}</Project>
+      <Name>Jonesie.Web.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Jonesie.Web.Contracts.Core\Jonesie.Web.Contracts.Core.csproj">
+      <Project>{98bbda40-9308-42cb-ae36-7705857c6332}</Project>
+      <Name>Jonesie.Web.Contracts.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Jonesie.Web.Contracts.Data\Jonesie.Web.Contracts.Data.csproj">
+      <Project>{d44cb987-ead8-4357-ae61-cba36ad9ae30}</Project>
+      <Name>Jonesie.Web.Contracts.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Jonesie.Web.Data\Jonesie.Web.Data.csproj">
+      <Project>{64f5b179-526b-41b7-b0b9-7dd017d06a28}</Project>
+      <Name>Jonesie.Web.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Jonesie.Web.Entities.Data.Blog\Jonesie.Web.Entities.Data.Blog.csproj">
+      <Project>{80d18936-731f-432a-9414-af5f3c919595}</Project>
+      <Name>Jonesie.Web.Entities.Data.Blog</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Jonesie.Web.Entities.Data\Jonesie.Web.Entities.Data.csproj">
+      <Project>{e004d511-49f0-411a-b9d5-b05b7d2ad8e2}</Project>
+      <Name>Jonesie.Web.Entities.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SQL\BlogPosts_Get.sql" />
+    <Content Include="SQL\BlogPost_Get.sql" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

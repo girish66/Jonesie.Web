@@ -1,0 +1,35 @@
+﻿@model Jonesie.Web.Module.JonesieHome.Models.BroadcastMessageViewModel
+
+@using (Html.BeginForm("SendBroadcast", "Home", FormMethod.Post, new { id = "BroadcastForm", @class="form-horizontal" }))
+{
+  <fieldset>
+    <legend>Message Details</legend>
+
+    @Html.HiddenFor(m => m.IsNew)
+    @Html.HiddenFor(m => m.Delete)
+
+    <div class="control-group">
+      @Html.LabelFor(m => m.Type, new { @class="control-label" })
+      <div class="controls">
+        @Html.DropDownListFor(m => m.Type, Model.TypeList)
+      </div>
+    </div>
+
+    <div class="control-group">
+      @Html.LabelFor(m => m.Message, new { @class="control-label" })
+      <div class="controls">
+        @Html.TextAreaFor(m => m.Message)
+        @Html.ValidationMessageFor(m => m.Message, null, new { @class="help-inline" })
+      </div>
+    </div>
+
+  </fieldset>
+}
+
+<script type="text/javascript">
+
+  $(function () {
+    $("#Type").focus();
+  });
+
+</script>

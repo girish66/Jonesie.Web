@@ -1,0 +1,35 @@
+﻿@model Jonesie.Web.Module.Admin.Models.RoleViewModel
+
+@using (Html.BeginForm("SaveRole", "Security", FormMethod.Post, new { id = "RoleForm" }))
+{
+  <fieldset>
+
+    @Html.HiddenFor(m => m.IsNew)
+    @Html.HiddenFor(m => m.Delete)
+    @Html.HiddenFor(m => m.Role.RoleId)
+
+    @if (Model.Delete)
+    {
+      <h4>Are you sure you wish to delete role @Model.Role.RoleName ?</h4>
+    }
+    else
+    {
+      <div class="control-group">
+        @Html.LabelFor(m => m.Role.RoleName)
+        <div class="controls">
+          @Html.TextBoxFor(m => m.Role.RoleName)
+          @Html.ValidationMessageFor(m => m.Role.RoleName)
+        </div>
+      </div>
+    }
+
+  </fieldset>
+}
+
+<script type="text/javascript">
+
+  $(function () {
+    $("#RoleName").focus();
+  });
+
+</script>

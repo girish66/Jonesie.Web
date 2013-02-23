@@ -1,0 +1,30 @@
+﻿@model Jonesie.Web.Site.Models.RegisterExternalLoginModel
+@{
+  ViewBag.Title = "Register";
+  ViewBag.Message = "Associate your " + ViewBag.ProviderDisplayName + " account.";
+}
+
+@using (Html.BeginForm("ExternalLoginConfirmation", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal" }))
+{
+  @Html.AntiForgeryToken()
+  @Html.ValidationSummary(true)
+
+  <fieldset>
+    <legend>Association Form</legend>
+    <p>
+      You've successfully authenticated with <strong>@ViewBag.ProviderDisplayName</strong>.
+      Please enter a user name for this site below and click the Confirm button to finish
+      logging in.
+    </p>
+    <div class="control-group">
+      @Html.LabelFor(m => m.UserName, new { @class = "control-label" })
+      <div class="controls">
+        @Html.TextBoxFor(m => m.UserName)
+        @Html.ValidationMessageFor(m => m.UserName, null, new { @class = "help-inline" })
+      </div>
+    </div>
+    @Html.HiddenFor(m => m.ExternalLoginData)
+    <input type="submit" class="btn" value="Register" />
+  </fieldset>
+}
+

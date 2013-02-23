@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>glimpse-dependencies</id>
+    <version>1.3</version>
+    <title>glimpse-dependencies</title>
+    <authors>Joe Wasson</authors>
+    <owners>Joe Wasson</owners>
+    <licenseUrl>https://github.com/TallAmbitions/Glimpse-Dependencies/raw/master/LICENSE.txt</licenseUrl>
+    <projectUrl>https://github.com/TallAmbitions/Glimpse-Dependencies/</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Glimpse Plugin to view MVC dependency resolution.</description>
+    <summary>Glimpse Plugin to view MVC dependency resolution.</summary>
+    <tags>glimpse mvc3</tags>
+    <dependencies>
+      <dependency id="Glimpse" version="0.83" />
+      <dependency id="Glimpse.MVC3" version="0.83" />
+    </dependencies>
+    <references>
+      <reference file="Tall.Glimpse.DependencyPlugin.dll" />
+    </references>
+  </metadata>
+</package>

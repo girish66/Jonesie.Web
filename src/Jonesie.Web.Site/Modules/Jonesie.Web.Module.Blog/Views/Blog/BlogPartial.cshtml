@@ -1,0 +1,56 @@
+﻿@model Jonesie.Web.Entities.Core.BaseViewModel
+@using Jonesie.Web.Entities.Core;
+
+<script type="text/html" id="@(Model.Entity)grid_template">
+  {{{Rows}}}           
+  {{{Paging}}}
+</script>
+
+
+<script type="text/javascript">
+
+  var $@(Model.Entity)Grid;
+
+  @if ((Model.ToolbarButtons & BaseViewModelToolbarEnum.Add) == BaseViewModelToolbarEnum.Add)
+  {
+    <text>
+  function new@(Model.Entity)() {
+      Jonesie.createForm('@Model.Entity', '@Model.EntityLabel', 'New', '@Model.Controller', $@(Model.Entity)Grid);
+  }
+  </text>
+  }
+
+  @if ((Model.ToolbarButtons & BaseViewModelToolbarEnum.Edit) == BaseViewModelToolbarEnum.Edit)
+  {
+    <text>
+  function edit@(Model.Entity)(id) {
+      Jonesie.createForm('@Model.Entity', '@Model.EntityLabel', 'Edit', '@Model.Controller', $@(Model.Entity)Grid, id);
+  }
+  </text>
+  }
+
+  @if ((Model.ToolbarButtons & BaseViewModelToolbarEnum.Delete) == BaseViewModelToolbarEnum.Delete)
+  {
+    <text>
+  function delete@(Model.Entity)(id) {
+      Jonesie.createForm('@Model.Entity', '@Model.EntityLabel', 'Delete', '@Model.Controller', $@(Model.Entity)Grid, id);
+  }
+  </text>
+  }
+
+  function showGrid(columns) {
+    var config = {
+      url: Jonesie.globals.baseUrl + '@Model.Controller/Get@(Model.Entity)s',
+      pageSize: 10,
+      el: '#@(Model.Entity)_GRID',
+      row_template: "#@(Model.Entity)rows_template",
+      grid_template: "#@(Model.Entity)grid_template",
+      page_template: "#@(Model.Entity)page_template",
+      columns : columns
+    };
+
+    $@(Model.Entity)Grid = Jonesie.basicgrid.QuickGrid(config);
+    $@(Model.Entity)Grid.load();
+  }
+
+</script>

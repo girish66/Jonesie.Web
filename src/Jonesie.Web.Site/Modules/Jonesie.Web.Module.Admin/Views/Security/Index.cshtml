@@ -1,0 +1,53 @@
+﻿@model Jonesie.Web.Module.Admin.Models.CurrentSessionsViewModel
+
+@{
+  ViewBag.Title = "Security";
+  ViewBag.Message = "Use this page to manage users, roles and sessions.";
+  ViewBag.Level2Menu = "Admin";
+  Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="tabbable tabs-left">
+  <ul class="nav nav-tabs" id="ajax_tabs">
+    <li class="active"><a data-toggle="tab" href="#ajax_sessions">Sessions</a></li>
+    <li><a data-toggle="tab" href="#ajax_users">Users</a></li>
+    <li><a data-toggle="tab" href="#ajax_roles">Roles</a></li>
+    <li><a data-toggle="tab" href="#ajax_roleactionmaps">Authorization</a></li>
+  </ul>
+  <div class="tab-content">
+    <div class="tab-pane active" id="ajax_sessions"
+      data-target="@Href("~/Security/GetSessionsView")"></div>
+    <div class="tab-pane" id="ajax_users"
+      data-target="@Href("~/Security/GetUsersView")"></div>
+    <div class="tab-pane" id="ajax_roles"
+      data-target="@Href("~/Security/GetRolesView")"></div>
+    <div class="tab-pane" id="ajax_roleactionmaps"
+      data-target="@Href("~/Security/GetRoleActionMapsView")"></div>
+  </div>
+</div>
+
+@section Scripts {
+  <script type="text/javascript">
+    function show_tab(tab) {
+      if (!tab.html()) {
+        tab.load(tab.attr('data-target'));
+      }
+    }
+
+    function init_tabs() {
+      show_tab($('.tab-pane.active'));
+      $('a[data-toggle="tab"]').on('show', function (e) {
+        tab = $('#' + $(e.target).attr('href').substr(1));
+        show_tab(tab);
+      });
+    }
+
+    $(function () {
+      init_tabs();
+    });
+  </script>
+
+  @*@Scripts.Render("~/bundles/forms")*@
+  @Scripts.Render("~/bundles/jonesiegrid")
+
+}

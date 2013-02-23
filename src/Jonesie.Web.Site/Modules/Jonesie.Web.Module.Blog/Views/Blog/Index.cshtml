@@ -1,0 +1,103 @@
+﻿@model Jonesie.Web.Module.Blog.Models.BlogPostsViewModel
+@using Jonesie.Web.Entities.Core;
+
+@{
+  ViewBag.Title = "Blog";
+  Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="@(Model.Entity)_GRID"></div>
+<div id='@(Model.Entity)_DIALOG'></div>
+
+@Html.Partial("BlogHeadingPartial", Model)
+@Html.Partial("BlogPagerPartial", Model)
+@Html.Partial("BlogPartial", Model)
+
+@section sidebarleft
+{
+  <div class="well well-small">
+    <ul class="nav nav-list">
+      <li class="nav-header">Blog</li>
+
+      @if (Model.ToolbarButtons != BaseViewModelToolbarEnum.None)
+      {
+        if ((Model.ToolbarButtons & BaseViewModelToolbarEnum.Add) == BaseViewModelToolbarEnum.Add)
+        {
+          <text>
+        <li>
+            <a id="@(Model.Entity)toolbar_new" onclick="new@(Model.Entity)()">New Post</a>
+        </li>
+          </text>
+        }
+      }
+
+    </ul>
+
+  </div>
+}
+
+
+@section scripts 
+{
+
+  @*@Scripts.Render("~/bundles/forms")*@
+  @Scripts.Render("~/bundles/jonesiegrid")
+
+  <script type="text/html" id="@(Model.Entity)rows_template">
+    <div class="container-fluid">
+      {{#Items}}
+      <div class="row-fluid">
+        <div class="span12">
+          <h4>{{Title}}</h4>
+          <p><small><em>By {{Author}}, {{utcDateShort Posted}}</em></small></p>
+
+          @if ((Model.ToolbarButtons & BaseViewModelToolbarEnum.Edit) == BaseViewModelToolbarEnum.Edit)
+          {
+            <ul class="nav nav-pills" id="@(Model.Entity)toolbar">
+              <li><a id="@(Model.Entity)toolbar_edit" onclick="edit@(Model.Entity)({{Id}})">Edit</a>
+              </li>
+              <li><a id="@(Model.Entity)toolbar_delete" onclick="delete@(Model.Entity)({{Id}})">
+                Delete</a></li>
+            </ul>
+          }
+
+        </div>
+      </div>
+      <hr />
+      <div class="row-fluid">
+        <div class="span12">
+          {{{Body}}}
+        </div>
+      </div>
+      <hr />
+      {{/Items}}
+    </div>
+
+  </script>
+
+  <script type="text/javascript">
+
+    $(function () {
+      debugger;
+      showGrid([
+              {
+                Label: 'Title',
+                ColumnName: 'Title',
+                Sortable: true
+              },
+              {
+                Label: 'Author',
+                ColumnName: 'Author',
+                Sortable: true
+              },
+              {
+                Label: 'Posted',
+                ColumnName: 'Posted',
+                Sortable: true
+              }
+      ]);
+    });
+
+  </script>
+
+}

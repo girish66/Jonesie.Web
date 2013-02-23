@@ -1,0 +1,92 @@
+﻿@model Jonesie.Web.Module.Admin.Models.NavigationOptionViewModel
+@using Jonesie.Web.Utilities;
+
+<div class="container-fluid">
+  @using (Html.BeginForm("SaveOption", "Navigation", FormMethod.Post))
+  {
+    <fieldset>
+
+      @Html.HiddenFor(m => m.IsNew)
+      @Html.HiddenFor(m => m.Delete)
+      @Html.HiddenFor(m => m.Option.SiteNavigationId)
+
+      @if (Model.Delete)
+      {
+        <h4>Are you sure you wish to delete option "@Model.Option.DisplayLabel" ?</h4>
+      }
+      else
+      {
+        <div class="row-fluid">
+          <div class="span6">
+            @Html.LabelFor(m => m.Option.MenuName)
+            @Html.TextBoxFor(m => m.Option.MenuName, new { rel = "popover", data_content = Html.DescriptionFor(m => m.Option.MenuName), title = "Info", @class = "span6" })
+            @Html.ValidationMessageFor(m => m.Option.MenuName)
+          </div>
+          <div class="span6">
+            @Html.LabelFor(m => m.Option.ChildMenuName)
+            @Html.TextBoxFor(m => m.Option.ChildMenuName, new { rel = "popover", data_content = Html.DescriptionFor(m => m.Option.ChildMenuName), title = "Info", @class = "span6" })
+            @Html.ValidationMessageFor(m => m.Option.ChildMenuName)
+          </div>
+        </div>
+        
+        <div class="row-fluid">
+          <div class="span6">
+            @Html.LabelFor(m => m.Option.DisplayLabel)
+            @Html.TextBoxFor(m => m.Option.DisplayLabel, new { rel = "popover", data_content = Html.DescriptionFor(m => m.Option.DisplayLabel), title = "Info", @class = "span6" })
+            @Html.ValidationMessageFor(m => m.Option.DisplayLabel)
+          </div>
+        </div>
+
+        <div class="row-fluid">
+          <div class="span6">
+            @Html.LabelFor(m => m.Option.Controller)
+            @Html.TextBoxFor(m => m.Option.Controller, new { rel = "popover", data_content = Html.DescriptionFor(m => m.Option.Controller), title = "Info", @class = "span6" })
+            @Html.ValidationMessageFor(m => m.Option.Controller)
+          </div>
+          <div class="span6">
+            @Html.LabelFor(m => m.Option.Action)
+            @Html.TextBoxFor(m => m.Option.Action, new { rel = "popover", data_content = Html.DescriptionFor(m => m.Option.Action), title = "Info", @class = "span6" })
+            @Html.ValidationMessageFor(m => m.Option.Action)
+          </div>
+        </div>
+      
+        <div class="row-fluid">
+          <div class="span6">
+            @Html.LabelFor(m => m.Option.Url)
+            @Html.TextBoxFor(m => m.Option.Url, new { rel = "popover", data_content = Html.DescriptionFor(m => m.Option.Url), title = "Info", @class = "span6" })
+            @Html.ValidationMessageFor(m => m.Option.Url)
+          </div>
+          <div class="span6">
+
+            @Html.LabelFor(m => m.Option.Active)
+            @Html.CheckBoxFor(m => m.Option.Active, new { rel = "popover", data_content = Html.DescriptionFor(m => m.Option.Active), title = "Info", @class = "checkbox" })
+            @Html.ValidationMessageFor(m => m.Option.Active)
+          </div>
+        </div>
+
+        <div class="row-fluid">
+          <div class="span6">
+            @Html.LabelFor(m => m.Option.OptionOrder)
+            @Html.TextBoxFor(m => m.Option.OptionOrder, new { rel = "popover", data_content = Html.DescriptionFor(m => m.Option.OptionOrder), title = "Info" })
+            @Html.ValidationMessageFor(m => m.Option.OptionOrder)
+          </div>
+          <div class="span6">
+
+            @Html.LabelFor(m => m.Option.Roles)
+            @Html.TextBoxFor(m => m.Option.Roles, new { rel = "popover", data_content = Html.DescriptionFor(m => m.Option.Roles), title = "Info", @class = "span6" })
+            @Html.ValidationMessageFor(m => m.Option.Roles)
+          </div>
+        </div>
+      }
+
+    </fieldset>
+  }
+</div>
+
+<script type="text/javascript">
+
+  $(function () {
+    $('#' + '@Model.Entity' + '_DIALOG_BODY input').popover({ placement: 'right', trigger: 'focus' });
+  });
+
+</script>

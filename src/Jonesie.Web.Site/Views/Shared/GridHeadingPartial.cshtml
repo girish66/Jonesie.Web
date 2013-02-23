@@ -1,0 +1,15 @@
+﻿@model Jonesie.Web.Entities.Core.BaseViewModel
+
+<div id="@(Model.Entity)Modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="@(Model.Entity)ModalHeading"
+  aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h3 id="@(Model.Entity)ModalHeading"></h3>
+  </div>
+  <div class="modal-body">
+  </div>
+  <div class="modal-footer">
+    <a href="#" class="btn" data-dismiss="modal">Cancel</a>
+    <a href="#" class="btn btn-primary" onclick="save@(Model.Entity)()">Save</a>
+  </div>
+</div>

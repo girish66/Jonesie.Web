@@ -1,0 +1,42 @@
+﻿@model Jonesie.Web.Module.Admin.Models.UsersViewModel
+
+<div id="@(Model.Entity)_GRID"></div>
+<div id='@(Model.Entity)_DIALOG'></div>
+
+@Html.Partial("GridHeadingPartial", Model)
+@Html.Partial("GridPagerPartial", Model)
+@Html.Partial("GridPartial", Model)
+
+<script type="text/html" id="@(Model.Entity)rows_template">
+  {{#Items}}
+    <tr data-id="{{UserId}}">
+      <td>{{UserName}}</td>
+      <td>{{utcDateShort Created}}</td>
+      <td>{{utcDateShort LastLogin}}</td>
+    </tr>
+  {{/Items}}
+</script>
+
+<script type="text/javascript">
+
+  $(function () {
+    showGrid([
+            {
+              Label: 'Name',
+              ColumnName: 'UserName',
+              Sortable: true
+            },
+            {
+              Label: 'Created',
+              ColumnName: 'Created',
+              Sortable: true
+            },
+            {
+              Label: 'Last Login',
+              ColumnName: 'LastLogin',
+              Sortable: true
+            }
+    ]);
+  });
+
+</script>

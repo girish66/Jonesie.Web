@@ -1,0 +1,92 @@
+﻿@model Jonesie.Web.Module.Admin.Models.NavigationOptionsViewModel
+
+@{
+  ViewBag.Title = "Navigation";
+  ViewBag.Message = "Use this page to manage the site navigation - top level and side menu options.";
+  ViewBag.Level2Menu = "Admin";
+  Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="@(Model.Entity)_GRID"></div>
+<div id='@(Model.Entity)_DIALOG'></div>
+
+  
+@Html.Partial("GridPagerPartial", Model)
+@Html.Partial("GridPartial", Model)
+
+
+@section Scripts {
+
+  @*@Scripts.Render("~/bundles/forms")*@
+  @Scripts.Render("~/bundles/jonesiegrid")
+
+  <script type="text/html" id="@(Model.Entity)rows_template">
+    {{#Items}}
+    <tr data-id="{{SiteNavigationId}}">
+      <td>{{MenuName}}</td>
+      <td>{{ChildMenuName}}</td>
+      <td>{{OptionOrder}}</td>
+      <td>{{DisplayLabel}}</td>
+      <td>{{Controller}}</td>
+      <td>{{Action}}</td>
+      <td>{{Url}}</td>
+      <td>{{Roles}}</td>
+      <td>{{Active}}</td>
+    </tr>
+    {{/Items}}
+  </script>
+
+  <script type="text/javascript">
+
+    $(function () {
+      showGrid([
+            {
+              Label: 'Menu Name',
+              ColumnName: 'MenuName',
+              Sortable: true
+            },
+            {
+              Label: 'Child Menu',
+              ColumnName: 'ChildMenuName',
+              Sortable: true
+            },
+            {
+              Label: 'Order',
+              ColumnName: 'OptionOrder',
+              Sortable: true
+            },
+            {
+              Label: 'Caption',
+              ColumnName: 'DisplayLabel',
+              Sortable: true
+            },
+            {
+              Label: 'Controller',
+              ColumnName: 'Controller',
+              Sortable: true
+            },
+            {
+              Label: 'Action',
+              ColumnName: 'Action',
+              Sortable: true
+            },
+            {
+              Label: 'Url',
+              ColumnName: 'Url',
+              Sortable: true
+            },
+            {
+              Label: 'Roles',
+              ColumnName: 'Roles',
+              Sortable: true
+            },
+            {
+              Label: 'Active',
+              ColumnName: 'Active',
+              Sortable: true
+            }
+      ]);
+    });
+
+  </script>
+}

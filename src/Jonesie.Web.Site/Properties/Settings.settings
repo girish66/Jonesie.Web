@@ -1,0 +1,48 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Jonesie.Web.Site.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="LoggingProvider" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Jonesie.Web.Log.Trace.dll</Value>
+    </Setting>
+    <Setting Name="CacheProvider" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Jonesie.Web.Cache.ASPNet.dll</Value>
+    </Setting>
+    <Setting Name="Modules" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Jonesie.Web.Module.*.dll</Value>
+    </Setting>
+    <Setting Name="CacheShortTimeoutSecs" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">10</Value>
+    </Setting>
+    <Setting Name="CacheMediumTimeoutSecs" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">180</Value>
+    </Setting>
+    <Setting Name="CacheLongTimeoutSecs" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">1800</Value>
+    </Setting>
+    <Setting Name="CacheOptions" Type="System.String" Scope="Application">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="DBDefaultPageSize" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">100</Value>
+    </Setting>
+    <Setting Name="SearchConfigurationFileName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="LogConfiguration" Type="System.String" Scope="Application">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="DataProvider" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Jonesie.Web.Data.dll</Value>
+    </Setting>
+    <Setting Name="SiteTitle" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Jonesie</Value>
+    </Setting>
+    <Setting Name="SiteCopyright" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Peter Jones</Value>
+    </Setting>
+    <Setting Name="DBPath" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">c:\dev\sqldata</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

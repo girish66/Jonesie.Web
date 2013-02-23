@@ -1,0 +1,46 @@
+﻿@model Jonesie.Web.Site.Models.LoginModel
+
+@{
+  ViewBag.Title = "Log in";
+}
+
+<section id="loginForm">
+  @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal" }))
+  {
+    @Html.AntiForgeryToken()
+
+    <fieldset>
+      <legend>Direct Login</legend>
+      <div class="control-group">
+        @Html.LabelFor(m => m.UserName, new { @class = "control-label" })
+        <div class="controls">
+        @Html.TextBoxFor(m => m.UserName)
+        @Html.ValidationMessageFor(m => m.UserName)
+          </div>
+      </div>
+      <div class="control-group">
+        @Html.LabelFor(m => m.Password, new { @class = "control-label" })
+        <div class="controls">
+        @Html.PasswordFor(m => m.Password)
+        @Html.ValidationMessageFor(m => m.Password)
+          </div>
+      </div>
+      <div class="control-group">
+        @Html.LabelFor(m => m.RememberMe, new { @class = "control-label" })
+        <div class="controls">
+          @Html.CheckBoxFor(m => m.RememberMe)
+        </div>
+      </div>
+      <input type="submit" class="btn btn-primary" value="Log in" />  @Html.ActionLink("Register", "Register") if you don't have an account.
+    </fieldset>
+  }
+</section>
+
+<section class="social" id="socialLoginForm">
+  @Html.Action("ExternalLoginsList", new { ReturnUrl = ViewBag.ReturnUrl })
+</section>
+
+@section Scripts {
+    @*@Scripts.Render("~/bundles/forms")*@
+
+}

@@ -1,0 +1,148 @@
+﻿@using Jonesie.Web.Utilities;
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>@Html.Settings().SiteTitle :: @ViewBag.Title</title>
+  <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+  <meta name="viewport" content="width=device-width" />
+  @Styles.Render("~/Content/css")
+  @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+
+  <div class="page-container">
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+
+          <a class="brand" href="@Url.Content("~/")">@Html.Settings().SiteTitle</a>
+
+          <div class="nav-collapse collapse">
+            <ul class="nav nav-pills">
+              @Html.DynamicMenu()
+            </ul>
+
+            @Html.Partial("_LoginPartial")
+
+            @if (User.IsInRole("Administrators"))
+            {
+              <p class="pull-right" style="margin-top: 10px; margin-right: 20px;">
+                <a href="#" onclick="broadcast()"><i class="icon-bullhorn"></i></a>
+              </p>              
+            }
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="Broadcast_DIALOG" style="display: none"></div>
+
+  <div class="container-fluid">
+    <div class="alert" style="display: none; height: 20px" id="alert">
+      <a class="close" onclick="hideAlert()">&times;</a>
+      <span id="alertType" style="float: left; margin-right: 20px;"></span>
+      <div id="alertText" style="float: left"></div>
+    </div>
+
+    @*      <div id="DIALOGCONTAINER" style="position: relative"></div>*@
+
+    <div class="row-fluid">
+      <div class="span2">
+        <div class="well nav-list" id="sideMenu">
+          <ul class="nav nav-list">
+            <li class="nav-header">Menu</li>
+            @Html.DynamicMenu(level2: true)
+          </ul>
+        </div>
+
+        @RenderSection("sidebarleft", required: false)
+
+      </div>
+      <div class="span10">
+        @if (IsSectionDefined("bodytitle"))
+        {
+          @RenderSection("bodytitle", required: false)
+        }
+        else
+        { 
+          <h1>@ViewBag.Title</h1>
+          <h4>@ViewBag.Message</h4>
+        }
+
+        @RenderSection("featured", required: false)
+
+        <section class="content-wrapper main-content clear-fix">
+          @RenderBody()
+        </section>
+
+      </div>
+    </div>
+
+    <hr>
+
+    <footer>
+      <p>&copy; @DateTime.Now.Year - @Html.Settings().SiteCopyright</p>
+    </footer>
+
+  </div>
+
+  @Scripts.Render("~/bundles/base")
+  @Scripts.Render("~/bundles/forms")
+
+  <script src="~/signalr/hubs" type="text/javascript"></script>
+
+  <script type="text/javascript">
+
+    @* Setup some global vars
+        - base url is used by the grids to form urls to controller methods
+        - sessionId is used by the SignalR events so we can filter out messages from self
+        - userName is used to display the users name at the top of the page
+        - showAlert displays a message from the server or other clients *@
+
+    $(function () {
+      Jonesie.globals.baseUrl = '@Url.Content("~")';
+      Jonesie.globals.sessionId = '@Session.SessionID';
+      Jonesie.globals.userName = '@User.Identity.Name';
+      Jonesie.globals.showAlert = function (type, message, style) {
+        $('#alertType').html(type).attr('class', 'label label-' + style);
+        $('#alertText').html(message);
+        $('#alert').attr('class', 'alert alert-' + style).slideDown();
+      };
+      Jonesie.startUp();
+
+      if ($("#sideMenu ul li").length <= 1) {
+        $("#sideMenu").hide();
+      }
+
+    });
+
+    function hideAlert() { $("#alert").hide(); }
+
+    @if (User.IsInRole("Administrators"))
+    {
+      <text>
+    function broadcast() 
+    {
+      Jonesie.createForm("Broadcast", "Message", "Send", "Home", null, null, 200, 400);
+        
+    }
+    </text>
+    }
+
+  </script>
+
+  @Html.RenderModuleScript()
+
+  @RenderSection("Scripts", required: false)
+</body>
+</html>

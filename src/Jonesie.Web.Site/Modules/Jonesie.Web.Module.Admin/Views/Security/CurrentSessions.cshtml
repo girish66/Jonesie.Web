@@ -1,0 +1,48 @@
+﻿@model Jonesie.Web.Module.Admin.Models.CurrentSessionsViewModel
+
+<div id="@(Model.Entity)_GRID"></div>
+<div id='@(Model.Entity)_DIALOG'></div>
+
+@Html.Partial("GridHeadingPartial", Model)
+@Html.Partial("GridPagerPartial", Model)
+@Html.Partial("GridPartial", Model)
+
+<script type="text/html" id="@(Model.Entity)rows_template">
+  {{#Items}}
+    <tr data-id="{{Id}}">
+      <td>{{UserId}}</td>
+      <td>{{IPAddress}}</td>
+      <td>{{utcDateShort Started}}</td>
+      <td>{{utcDateShort LastRequest}}</td>
+    </tr>
+  {{/Items}}
+</script>
+
+<script type="text/javascript">
+
+  $(function () {
+    showGrid([
+          {
+            Label: 'User',
+            ColumnName: 'UserId',
+            Sortable: true
+          },
+          {
+            Label: 'IP Address',
+            ColumnName: 'IPAddress',
+            Sortable: true
+          },
+          {
+            Label: 'Started',
+            ColumnName: 'Started_UTC',
+            Sortable: true
+          },
+          {
+            Label: 'Last Request',
+            ColumnName: 'LastRequest',
+            Sortable: true
+          }
+    ]);
+  });
+
+</script>

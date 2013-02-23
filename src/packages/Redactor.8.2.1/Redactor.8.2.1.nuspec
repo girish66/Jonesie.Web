@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>Redactor</id>
+    <version>8.2.1</version>
+    <title>Redactor</title>
+    <authors>imperavi</authors>
+    <owners>imperavi</owners>
+    <licenseUrl>http://redactorjs.com/license/</licenseUrl>
+    <projectUrl>http://redactorjs.com/</projectUrl>
+    <iconUrl>http://imperavi.com/img/ico_redactor.png</iconUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <description>Redactor is the most fantastic yet beautiful and easy-to-use WYSIWYG editor on jQuery. It is lightning fast, small, scalable, and powerful.</description>
+    <summary>Redactor is the most fantastic yet beautiful and easy-to-use WYSIWYG editor on jQuery. It is lightning fast, small, scalable, and powerful.</summary>
+    <releaseNotes />
+    <copyright>© Imperavi 2009-2012</copyright>
+    <language>en-US</language>
+    <tags>jquery editor wysiwyg redactor</tags>
+    <dependencies>
+      <dependency id="jQuery" version="1.8.2" />
+    </dependencies>
+    <references />
+  </metadata>
+</package>
