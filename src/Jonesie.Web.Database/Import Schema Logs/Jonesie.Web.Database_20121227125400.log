@@ -1,0 +1,76 @@
+27/12/2012 1:54:00 p.m.	This log contains information about the import schema operation into project 'Jonesie.Web.Database' on computer 'BIGBEAST' by user 'peter'.
+27/12/2012 1:54:00 p.m.	Import of database schema has started.
+27/12/2012 1:54:05 p.m.	Gathering database options
+27/12/2012 1:54:05 p.m.	Gathering users
+27/12/2012 1:54:05 p.m.	Gathering roles
+27/12/2012 1:54:05 p.m.	Gathering application roles
+27/12/2012 1:54:05 p.m.	Gathering role memberships
+27/12/2012 1:54:05 p.m.	Gathering filegroups
+27/12/2012 1:54:05 p.m.	Gathering full-text catalogs
+27/12/2012 1:54:05 p.m.	Gathering assemblies
+27/12/2012 1:54:05 p.m.	Gathering certificates
+27/12/2012 1:54:05 p.m.	Gathering asymmetric keys
+27/12/2012 1:54:05 p.m.	Gathering symmetric keys
+27/12/2012 1:54:05 p.m.	Gathering encrypted symmetric keys
+27/12/2012 1:54:05 p.m.	Gathering schemas
+27/12/2012 1:54:05 p.m.	Gathering XML schema collections
+27/12/2012 1:54:05 p.m.	Gathering user-defined data types
+27/12/2012 1:54:05 p.m.	Gathering user-defined types
+27/12/2012 1:54:05 p.m.	Gathering table types
+27/12/2012 1:54:05 p.m.	Gathering unique keys for table types
+27/12/2012 1:54:05 p.m.	Gathering primary keys for table types
+27/12/2012 1:54:05 p.m.	Gathering check constraints for table types
+27/12/2012 1:54:05 p.m.	Gathering default constraints for table types
+27/12/2012 1:54:05 p.m.	Gathering partition functions
+27/12/2012 1:54:05 p.m.	Gathering partition schemes
+27/12/2012 1:54:05 p.m.	Gathering functions
+27/12/2012 1:54:05 p.m.	Gathering encrypted functions
+27/12/2012 1:54:05 p.m.	Gathering aggregates
+27/12/2012 1:54:05 p.m.	Gathering procedures
+27/12/2012 1:54:05 p.m.	Gathering encrypted procedures
+27/12/2012 1:54:05 p.m.	Gathering tables
+27/12/2012 1:54:06 p.m.	Gathering primary keys
+27/12/2012 1:54:06 p.m.	Gathering unique constraints
+27/12/2012 1:54:06 p.m.	Gathering foreign keys
+27/12/2012 1:54:06 p.m.	Gathering default constraints
+27/12/2012 1:54:06 p.m.	Gathering check constraints
+27/12/2012 1:54:06 p.m.	Gathering views
+27/12/2012 1:54:06 p.m.	Gathering encrypted views
+27/12/2012 1:54:06 p.m.	Gathering indexes
+27/12/2012 1:54:06 p.m.	Gathering statistics
+27/12/2012 1:54:06 p.m.	Gathering full-text index stoplists
+27/12/2012 1:54:06 p.m.	Gathering search property lists
+27/12/2012 1:54:06 p.m.	Gathering search properties
+27/12/2012 1:54:06 p.m.	Gathering full-text indexes
+27/12/2012 1:54:06 p.m.	Gathering column store indexes
+27/12/2012 1:54:06 p.m.	Gathering spatial indexes
+27/12/2012 1:54:06 p.m.	Gathering XML indexes
+27/12/2012 1:54:06 p.m.	Gathering Selective XML indexes
+27/12/2012 1:54:06 p.m.	Gathering encrypted triggers
+27/12/2012 1:54:06 p.m.	Gathering triggers
+27/12/2012 1:54:06 p.m.	Gathering encrypted and clr ddl triggers
+27/12/2012 1:54:06 p.m.	Gathering ddl triggers
+27/12/2012 1:54:06 p.m.	Gathering synonyms
+27/12/2012 1:54:06 p.m.	Gathering defaults
+27/12/2012 1:54:06 p.m.	Gathering data constraint uddt bindings
+27/12/2012 1:54:06 p.m.	Gathering rules
+27/12/2012 1:54:06 p.m.	Gathering data constraint uddt bindings
+27/12/2012 1:54:06 p.m.	Gathering message types
+27/12/2012 1:54:06 p.m.	Gathering queues
+27/12/2012 1:54:06 p.m.	Gathering contracts
+27/12/2012 1:54:06 p.m.	Gathering services
+27/12/2012 1:54:06 p.m.	Gathering event notifications
+27/12/2012 1:54:06 p.m.	Gathering remote service bindings
+27/12/2012 1:54:06 p.m.	Gathering broker priorities
+27/12/2012 1:54:06 p.m.	Gathering signatures
+27/12/2012 1:54:06 p.m.	Gathering data compression options
+27/12/2012 1:54:06 p.m.	Gathering sequence types
+27/12/2012 1:54:06 p.m.	Gathering extended properties
+27/12/2012 1:54:06 p.m.	Gathering credentials
+27/12/2012 1:54:06 p.m.	Gathering logins
+27/12/2012 1:54:06 p.m.	Gathering server audits
+27/12/2012 1:54:06 p.m.	Scanning project for duplicate elements
+27/12/2012 1:54:06 p.m.	Finished duplicate element processing
+27/12/2012 1:54:06 p.m.	Finished importing database.
+27/12/2012 1:54:06 p.m.	A summary of the import was saved to the following location: D:\dev\NewJonesie\Jonesie.Web\Jonesie.Web.Database\Import Schema Logs\Jonesie.Web.Database_20121227125400.log
+27/12/2012 1:54:06 p.m.	Click Finish to continue...
